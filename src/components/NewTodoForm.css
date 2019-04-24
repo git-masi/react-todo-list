@@ -1,10 +1,14 @@
 .NewTodoForm {
+  position: sticky;
+  top: 0;
+  left: 0;
   margin-bottom: 2rem;
   padding: 2rem;
   width: 100%;
   
   background: #576574;
   border-radius: .8rem;
+  box-shadow: 0 0 0 2rem #222f3e;
 }
 
 .NewTodoForm > * {
@@ -50,10 +54,42 @@
   justify-content: center;
   align-items: center;
 
-  font-size: 4rem;
   cursor: pointer;
 
-  color: white;
   border-radius: .8rem;
   background: #10ac84;
+}
+
+.input-button-group button i {
+  color: white;
+  font-size: 4rem;
+}
+
+@media screen and (max-width: 500px) {
+  .NewTodoForm {
+    padding: 1rem;
+  }
+
+  .input-button-group input {
+    font-size: 1.6rem;
+  }
+
+  .input-button-group button {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .input-button-group input {
+    font-size: 1.6rem;
+  }
+
+  .input-button-group button {
+    height: 2rem;
+    width: 2rem;
+  }
+
+  .input-button-group button i {
+    font-size: 2rem;
+  }
 }

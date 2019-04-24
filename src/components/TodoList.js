@@ -8,9 +8,9 @@ class TodoList extends Component {
     super();
     this.state = {
       todoList: [
-        {text: 'buy eggs'},
-        {text: 'walk dog'},
-        {text: 'wash car'}
+        {text: 'buy eggs', id: "test1"},
+        {text: 'walk dog', id: "test2"},
+        {text: 'wash car', id: "test3"}
       ]
     }
     this.addTodo = this.addTodo.bind(this);
@@ -21,7 +21,16 @@ class TodoList extends Component {
   }
 
   render() {
-    const todos = this.state.todoList.map(todo => <Todo todoText={todo.text}/>);
+    const todos = this.state.todoList.map(todo => {
+        return (
+          <Todo
+            todoText={todo.text}
+            key={todo.id}
+            id={todo.id}
+          />
+        )
+      }
+    );
 
     return (
       <div className="TodoList">

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './NewTodoForm.css';
+import uuid from 'uuidv4';
   
 class NewTodoForm extends Component {
   constructor(props) {
@@ -13,7 +14,8 @@ class NewTodoForm extends Component {
 
   submitHandler(e) {
     e.preventDefault();
-    this.props.add(this.state);
+    const newTodo = {...this.state, id: uuid()}
+    this.props.add(newTodo);
     this.setState({text: ''});
   }
 

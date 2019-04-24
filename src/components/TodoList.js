@@ -8,7 +8,9 @@ class TodoList extends Component {
     super();
     this.state = {
       todoList: [
-        {text: 'this is some text'}
+        {text: 'buy eggs'},
+        {text: 'walk dog'},
+        {text: 'wash car'}
       ]
     }
     this.addTodo = this.addTodo.bind(this);
@@ -22,7 +24,7 @@ class TodoList extends Component {
     const todos = this.state.todoList.map(todo => <Todo todoText={todo.text}/>);
 
     return (
-      <div>
+      <div className="TodoList">
         <NewTodoForm add={this.addTodo}/>
         {todos}
       </div>

@@ -11,7 +11,13 @@ class Todo extends Component {
 
   render() {
     return (
-      <div>{this.props.todoText}</div>
+      <div className="Todo">
+        {this.props.todoText}
+        <div>
+          <i class="fas fa-pencil-alt"></i>
+          <i class="fas fa-trash"></i>
+        </div>
+      </div>
     )
   }
 }

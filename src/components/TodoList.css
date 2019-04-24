@@ -12,10 +12,15 @@
 
   overflow: auto;
   background: #222f3e;
+  box-shadow: 
+    -1rem -1rem 0 rgba(255, 255, 255, .3),
+    1rem 1rem 0 #222f3e55;
 }
 
 @media screen and (max-width: 500px) {
   .TodoList {
     width: 95%;
+
+    box-shadow: none;
   } 
 }

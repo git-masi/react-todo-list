@@ -8,6 +8,10 @@
   border-radius: .8rem;
 }
 
+.complete {
+  text-decoration: line-through;
+}
+
 .Todo:nth-of-type(even) {
   background: #c8d6e5;
 }

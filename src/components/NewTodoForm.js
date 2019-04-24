@@ -27,7 +27,7 @@ class NewTodoForm extends Component {
         <label htmlFor="todo">Add Todo:</label>
         <div className="input-button-group">
           <input type="text" name="text" id="todo" value={this.state.text} onChange={this.changeHandler}></input>
-          <button><i class="far fa-plus-square"></i></button>
+          <button><i className="far fa-plus-square"></i></button>
         </div>
       </form>
     )

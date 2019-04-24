@@ -7,15 +7,21 @@ class Todo extends Component {
     this.state = {
       complete: false
     }
+    this.completeHandler = this.completeHandler.bind(this);
+  }
+
+  completeHandler() {
+    const toggleComplete = !this.state.complete;
+    this.setState({complete: toggleComplete})
   }
 
   render() {
     return (
       <div className="Todo">
-        {this.props.todoText}
+        <span onClick={this.completeHandler} className={this.state.complete ? 'complete' : null}>{this.props.todoText}</span>
         <div>
-          <i class="fas fa-pencil-alt"></i>
-          <i class="fas fa-trash"></i>
+          <i className="fas fa-pencil-alt"></i>
+          <i className="fas fa-trash"></i>
         </div>
       </div>
     )

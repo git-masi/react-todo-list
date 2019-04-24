@@ -14,10 +14,15 @@ class TodoList extends Component {
       ]
     }
     this.addTodo = this.addTodo.bind(this);
+    this.deleteHandler = this.deleteHandler.bind(this);
   }
 
   addTodo(todoObj) {
     this.setState({todoList: [...this.state.todoList, todoObj]})
+  }
+
+  deleteHandler(todoID) {
+    this.setState({todoList: this.state.todoList.filter(todo => todo.id !== todoID)});
   }
 
   render() {
@@ -27,6 +32,7 @@ class TodoList extends Component {
             todoText={todo.text}
             key={todo.id}
             id={todo.id}
+            delete={this.deleteHandler}
           />
         )
       }

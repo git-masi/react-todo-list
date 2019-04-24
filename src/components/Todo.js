@@ -13,6 +13,7 @@ class Todo extends Component {
     this.editHandler = this.editHandler.bind(this);
     this.changeHandler = this.changeHandler.bind(this);
     this.enterKeyHandler = this.enterKeyHandler.bind(this);
+    this.deleteHandler = this.deleteHandler.bind(this);
   }
 
   completeHandler() {
@@ -31,6 +32,10 @@ class Todo extends Component {
 
   enterKeyHandler(e) {
     if (e.key === 'Enter') this.setState({edit: false, text: e.target.value});
+  }
+
+  deleteHandler() {
+    this.props.delete(this.props.id);
   }
 
   render() {
@@ -52,7 +57,7 @@ class Todo extends Component {
         </span>
         <div>
           <i onClick={this.editHandler} className="fas fa-pencil-alt"></i>
-          <i className="fas fa-trash"></i>
+          <i onClick={this.deleteHandler}className="fas fa-trash"></i>
         </div>
       </div>
     )

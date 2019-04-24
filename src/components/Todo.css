@@ -8,6 +8,10 @@
   border-radius: .8rem;
 }
 
+/* .Todo input {
+  all: unset;
+} */
+
 .complete {
   text-decoration: line-through;
 }

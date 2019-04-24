@@ -15,14 +15,26 @@ class TodoList extends Component {
     }
     this.addTodo = this.addTodo.bind(this);
     this.deleteHandler = this.deleteHandler.bind(this);
+    this.updateTodo = this.updateTodo.bind(this);
   }
 
   addTodo(todoObj) {
-    this.setState({todoList: [...this.state.todoList, todoObj]})
+    this.setState({todoList: [...this.state.todoList, todoObj]});
   }
 
   deleteHandler(todoID) {
     this.setState({todoList: this.state.todoList.filter(todo => todo.id !== todoID)});
+  }
+
+  updateTodo(id, text) {
+    const updateState = this.state.todoList.map(todo => {
+      if (todo.id === id) {
+        return {...todo, text: text};
+      } else {
+        return todo;
+      }
+    });
+    this.setState({todoList: updateState});
   }
 
   render() {
@@ -33,6 +45,7 @@ class TodoList extends Component {
             key={todo.id}
             id={todo.id}
             delete={this.deleteHandler}
+            update={this.updateTodo}
           />
         )
       }

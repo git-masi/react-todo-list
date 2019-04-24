@@ -14,6 +14,7 @@ class Todo extends Component {
     this.changeHandler = this.changeHandler.bind(this);
     this.enterKeyHandler = this.enterKeyHandler.bind(this);
     this.deleteHandler = this.deleteHandler.bind(this);
+    this.updateHandler = this.updateHandler.bind(this);
   }
 
   completeHandler() {
@@ -21,9 +22,15 @@ class Todo extends Component {
     this.setState({complete: toggleComplete})
   }
 
-  editHandler() {
+  editHandler(e) {
     const toggleEdit = !this.state.edit;
     this.setState({edit: toggleEdit});
+    if (toggleEdit === false) this.updateHandler(e);
+  }
+
+  updateHandler(e) {
+    e.preventDefault();
+    this.props.update(this.props.id, this.state.text)
   }
 
   changeHandler(e) {
@@ -31,7 +38,10 @@ class Todo extends Component {
   }
 
   enterKeyHandler(e) {
-    if (e.key === 'Enter') this.setState({edit: false, text: e.target.value});
+    if (e.key === 'Enter') {
+      this.setState({edit: false, text: e.target.value});
+      this.updateHandler(e);
+    }
   }
 
   deleteHandler() {
@@ -41,14 +51,16 @@ class Todo extends Component {
   render() {
     return (
       <div className="Todo">
-        <input
-          type="text"
-          name="text"
-          onChange={this.changeHandler}
-          onKeyPress={this.enterKeyHandler}
-          value={this.state.text} 
-          style={{display: this.state.edit ? 'inline-block' : 'none'}}>
-        </input>
+        {/* <form onSubmit={this.props.updateHandler}> */}
+          <input
+            type="text"
+            name="text"
+            onChange={this.changeHandler}
+            onKeyPress={this.enterKeyHandler}
+            value={this.state.text} 
+            style={{display: this.state.edit ? 'inline-block' : 'none'}}>
+          </input>
+        {/* </form> */}
         <span 
           onClick={this.completeHandler}
           className={this.state.complete ? 'complete' : null}

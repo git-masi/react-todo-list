@@ -56,8 +56,8 @@ class Todo extends Component {
           {this.state.text}
         </span>
         <div>
-          <i onClick={this.editHandler} className="fas fa-pencil-alt"></i>
-          <i onClick={this.deleteHandler}className="fas fa-trash"></i>
+          <i role="button" onClick={this.editHandler} className="fas fa-pencil-alt"></i>
+          <i role="button" onClick={this.deleteHandler}className="fas fa-trash"></i>
         </div>
       </div>
     )

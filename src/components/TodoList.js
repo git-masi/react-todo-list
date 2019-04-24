@@ -11,6 +11,11 @@ class TodoList extends Component {
         {text: 'this is some text'}
       ]
     }
+    this.addTodo = this.addTodo.bind(this);
+  }
+
+  addTodo(todoObj) {
+    this.setState({todoList: [...this.state.todoList, todoObj]})
   }
 
   render() {
@@ -18,7 +23,7 @@ class TodoList extends Component {
 
     return (
       <div>
-        <NewTodoForm/>
+        <NewTodoForm add={this.addTodo}/>
         {todos}
       </div>
     )

@@ -5,7 +5,7 @@ class NewTodoForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todo: ''
+      text: ''
     }
     this.submitHandler = this.submitHandler.bind(this);
     this.changeHandler = this.changeHandler.bind(this);
@@ -13,6 +13,8 @@ class NewTodoForm extends Component {
 
   submitHandler(e) {
     e.preventDefault();
+    this.props.add(this.state);
+    this.setState({text: ''});
   }
 
   changeHandler(e) {
@@ -23,7 +25,7 @@ class NewTodoForm extends Component {
     return (
       <form onSubmit={this.submitHandler}>
         <label htmlFor="todo"></label>
-        <input type="text" name="todo" id="todo" value={this.state.todoText} onChange={this.changeHandler}></input>
+        <input type="text" name="text" id="todo" value={this.state.text} onChange={this.changeHandler}></input>
         <button>Add Todo</button>
       </form>
     )

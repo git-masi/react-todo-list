@@ -6,14 +6,21 @@ import Todo from './Todo';
 class TodoList extends Component {
   constructor() {
     super();
-    this.state = [
-      todoList = []
-    ]
+    this.state = {
+      todoList: [
+        {text: 'this is some text'}
+      ]
+    }
   }
 
   render() {
+    const todos = this.state.todoList.map(todo => <Todo todoText={todo.text}/>);
+
     return (
-      <div></div>
+      <div>
+        <NewTodoForm/>
+        {todos}
+      </div>
     )
   }
 }

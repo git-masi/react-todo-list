@@ -11,7 +11,7 @@ class Todo extends Component {
 
   render() {
     return (
-      <div></div>
+      <div>{this.props.todoText}</div>
     )
   }
 }
